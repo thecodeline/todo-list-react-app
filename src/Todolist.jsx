@@ -24,20 +24,10 @@ const MoveDown = (index)=>{
         SetTasks(UpdatedTasks);
     }
 }
-const TaskDone = (e) =>{
-    var target = e.target;
-    if(  target.innerHTML == "Done"){
-    target.innerHTML= "Reset";
-    }else{
-        target.innerHTML = "Done";
-    }
-    var parent = target.parentElement;
-    parent.classList.toggle("cross");
-    parent.classList.toggle("danger");
-}
+
 return(
-<div>
-  <h3>Todo List</h3>
+<div className="container">
+  <h1>Todo List</h1>
     <input id="new-task" type="text" value={NewTask} onChange={updateTask} className="input-task" placeholder='Enter A New Task ...'/>
     <button onClick={AddNewTask} className='add-task-btn'>Add</button>
     <ol className="todo-list">
@@ -48,7 +38,7 @@ return(
            <span onClick={()=>removeTask(i)} className='remove btn'>❌</span>
            <span onClick={()=>MoveUp(i)}className='move-up btn'>☝️</span>
            <span onClick={()=>MoveDown(i)}className='move-down btn'>👇</span>
-           <span onClick={(e)=>TaskDone(e)}className='task-done btn'>Done</span>
+          
            </li> 
            
     
